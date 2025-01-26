@@ -1,0 +1,163 @@
+; Définir les agents et leurs propriétés
+breed [persons person]
+persons-own [
+  impatient? ; true si la personne est impatiente et false si patiente
+  waiting-time ; temps passé à attendre
+  life ;la vie avant de sucomber a la triste verite qu est la mort proche a tout instant de l etre humain
+]
+
+; Initialisation
+to setup
+  clear-all
+  setup-patches
+  setup-persons
+  reset-ticks
+end
+
+to setup-patches
+  ask patches with [pxcor <= 30 and pxcor >= -30 and pycor = 30 ] [
+    set pcolor yellow ]
+  ask patches with [pxcor < 3 and pxcor > -3 and pycor = 30 ] [
+    set pcolor red
+  ]
+ let px random-xcor
+let py random-ycor
+
+; Ensure px and py are within the specified range
+while [not (px >= -30 and px <= 30 and py >= -20 and py <= -11)] [
+  set px random-xcor
+  set py random-ycor
+]
+
+; Now you have a patch with coordinates (px, py)
+ask patch px py [
+  set pcolor orange  ; Example action: change the patch color to red
+]
+
+end
+
+to setup-persons
+  create-persons impatients [
+     move-to one-of patches with [
+      pcolor = black and
+      pxcor < 29 and pxcor > -29 and
+      pycor < 29 and pycor > -29 and
+      count turtles-on self = 0
+    ]
+    set impatient? true ; Affecter aléatoirement impatience
+    set color red ; Couleur des impatients
+    set size 2.5
+    set life 100
+  ]
+  create-persons patients [
+      move-to one-of patches with [
+      pcolor = black and
+      pxcor < 29 and pxcor > -29 and
+      pycor < 29 and pycor > -29 and
+      count turtles-on self = 0
+    ]
+      set impatient? false
+      set patience patience
+      set color blue
+      set life 100
+      set size 2.5
+  ]
+end
+
+; Boucle principale
+to go
+  let alive-count count turtles
+  set-current-plot "Remaining in the building"
+  plot alive-count
+  spread-fire
+  ask persons [
+    if [pcolor] of patch-here = red [
+      die ]
+
+    if impatient? and life > 0  [
+      move-forcefully
+    ]
+    if not impatient? and life > 0 [
+      move-patiently
+    ]
+  ]
+  tick
+end
+
+; Déplacement pour les impatients : ils "bousculent" les autres
+to move-forcefully
+  let exit min-one-of patches with [pcolor = red] [distance myself]
+  face exit
+  let target-patch patches in-cone 2 30
+  if target-patch != nobody [
+  if any? other persons-on target-patch[
+    ask one-of other persons-on target-patch [
+      let suu one-of patches in-radius 1 with [distance myself > 0]
+      if suu != nobody [
+        let numm count turtles-on suu
+        if [pcolor] of suu != yellow and numm < 3 [
+         move-to suu
+         set life life - 15 ]
+      ]]
+  ]
+  if patch-ahead 1 != nobody [
+  let turtles-number count other turtles-on patch-ahead 1
+  if turtles-number = 0 [
+    fd 1
+    ]]
+  ]
+end
+
+; Déplacement pour les patients : attendre le tauchement
+; Déplacement pour les patients : attendre que le chemin soit dégagé
+to move-patiently
+  let exit min-one-of patches with [pcolor = red] [distance myself]
+  face exit
+  let target-patch patch-ahead 1
+  let others-in-vision other turtles in-cone 2 30
+  ifelse any? others-in-vision [
+    ; Incrémenter le temps d'attente si bloqué
+    set waiting-time waiting-time + 1
+    if waiting-time > patience [
+      move-forcefully
+    ]
+  ] [
+    set waiting-time 0
+    fd 1 ]
+
+end
+
+; Essayer de contourner si bloqué
+to try-to-move-around
+  let random-patch one-of patches in-radius 1 with [distance myself > 0] ; Find a random patch around the turtle
+  let numbers count other turtles-on random-patch
+  if random-patch != nobody and [pcolor] of random-patch != yellow and numbers < 5 [
+    face random-patch  ; Make the turtle face the randomly selected patch
+    fd 1               ; Move forward by 1 step
+  ]
+end
+
+
+to spread-fire
+  ; Fire expands every second
+  if ticks mod 2 = 0 [
+    ask patches with [ pcolor = orange ] [
+      ask neighbors with [ pcolor != orange and random-float 1.0 < 0.2 ] [
+        set pcolor orange
+      ]
+    ]
+  ]
+
+  ask turtles [
+    if [ pcolor ] of patch-here = orange [
+      set life life - 20
+    ]
+  ]
+
+end
+;Permet de modifier le niveau de patience global
+to adjust-patience [new-patience]
+  ask persons with [not impatient?] [
+    set patience new-patience
+  ]
+end
