@@ -82,18 +82,13 @@ Extensions Possibles
 
 - Ajouter des Objets à Ramasser : Introduisez des objets que les agents doivent ramasser avant de sortir, ce qui ajoute une couche de complexité à la simulation.
 
-- Fonctionnalités NetLogo Utilisées
-Patches : Utilisés pour représenter l'environnement (murs, obstacles, sorties, feu).
+Fonctionnalités NetLogo Utilisées
+
+- Patches : Utilisés pour représenter l'environnement (murs, obstacles, sorties, feu).
 
 - Turtles : Représentent les agents (personnes) dans la simulation.
 
 - Cones : Utilisés pour la détection des obstacles et des autres agents.
 
 - Randomness : La propagation du feu et les mouvements des agents sont partiellement aléatoires.
-
-Modèles Connexes
-
-- Fire : Un modèle de propagation de feu dans NetLogo.
-
-- Traffic Basic : Un modèle de circulation qui explore les comportements des agents dans un environnement contraint.
 
