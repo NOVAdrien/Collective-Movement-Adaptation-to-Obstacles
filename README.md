@@ -1,4 +1,4 @@
-#Modèle de Simulation d'Évacuation en NetLogo
+Modèle de Simulation d'Évacuation en NetLogo
 
 Ce modèle NetLogo simule l'évacuation d'une bibliothèque en cas d'incendie. Il met en scène des agents (personnes) qui doivent trouver leur chemin vers les sorties tout en évitant les obstacles et en gérant leur patience et leur impatience. Le modèle inclut également la propagation du feu et son impact sur les agents.
 
