@@ -67,7 +67,8 @@ Cliquez sur Go pour démarrer la simulation.
 Observez comment les agents se déplacent, comment le feu se propage, et comment les compteurs évoluent.
 
 Observations à Faire
-Impact de la Patience : Observez comment le niveau de patience des agents affecte le temps d'évacuation et le nombre de victimes.
+
+- Impact de la Patience : Observez comment le niveau de patience des agents affecte le temps d'évacuation et le nombre de victimes.
 
 - Propagation du Feu : Notez comment la propagation du feu influence la survie des agents.
 
