@@ -3,26 +3,31 @@ Modèle de Simulation d'Évacuation en NetLogo
 Ce modèle NetLogo simule l'évacuation d'une bibliothèque en cas d'incendie. Il met en scène des agents (personnes) qui doivent trouver leur chemin vers les sorties tout en évitant les obstacles et en gérant leur patience et leur impatience. Le modèle inclut également la propagation du feu et son impact sur les agents.
 
 Objectif du Modèle
+
 L'objectif de ce modèle est de simuler les comportements des individus lors d'une évacuation d'urgence, en tenant compte de facteurs tels que la patience, l'impatience, et la propagation du feu. Le modèle permet d'observer comment ces facteurs influencent le temps d'évacuation et le nombre de victimes.
 
 Fonctionnement du Modèle
+
 Agents et Environnement
-Agents (Turtles) : Les agents représentent les personnes dans la bibliothèque. Ils sont de deux types :
 
-Patients : Ces agents sont plus calmes et attendent patiemment que le chemin se libère avant de se déplacer.
+- Agents (Turtles) : Les agents représentent les personnes dans la bibliothèque. Ils sont de deux types :
 
-Impatients : Ces agents sont plus agressifs et essaient de se frayer un chemin même si le passage est bloqué.
+- Patients : Ces agents sont plus calmes et attendent patiemment que le chemin se libère avant de se déplacer.
 
-Environnement : La bibliothèque est représentée par une grille de patches. Les obstacles (tables, murs, etc.) sont dessinés en jaune, les sorties en rouge, et le feu en orange.
+- Impatients : Ces agents sont plus agressifs et essaient de se frayer un chemin même si le passage est bloqué.
+
+- Environnement : La bibliothèque est représentée par une grille de patches. Les obstacles (tables, murs, etc.) sont dessinés en jaune, les sorties en rouge, et le feu en orange.
 
 Règles de Comportement
-Déplacement : Les agents se déplacent vers la sortie la plus proche. S'ils rencontrent un obstacle, ils essaient de le contourner. Les agents impatients peuvent pousser d'autres agents pour avancer, tandis que les agents patients attendent que le chemin se libère.
 
-Propagation du Feu : Le feu se propage aléatoirement sur les patches adjacents. Les agents qui se trouvent à proximité du feu perdent de la vie et peuvent mourir si leur vie atteint zéro.
+- Déplacement : Les agents se déplacent vers la sortie la plus proche. S'ils rencontrent un obstacle, ils essaient de le contourner. Les agents impatients peuvent pousser d'autres agents pour avancer, tandis que les agents patients attendent que le chemin se libère.
 
-Sortie : Lorsqu'un agent atteint une sortie (patch rouge), il est considéré comme évacué et disparaît de la simulation.
+- Propagation du Feu : Le feu se propage aléatoirement sur les patches adjacents. Les agents qui se trouvent à proximité du feu perdent de la vie et peuvent mourir si leur vie atteint zéro.
+
+- Sortie : Lorsqu'un agent atteint une sortie (patch rouge), il est considéré comme évacué et disparaît de la simulation.
 
 Variables Globales
+
 death-counter : Compte le nombre d'agents morts.
 
 free-counter : Compte le nombre d'agents ayant réussi à évacuer.
