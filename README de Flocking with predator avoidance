@@ -1,0 +1,91 @@
+Modèle de Comportement de Flock avec Évitement de Prédateur en NetLogo
+
+Ce modèle NetLogo simule le comportement de flocking (regroupement) des poissons, avec l'ajout d'un mécanisme d'évitement de prédateur. Les poissons (agents) suivent des règles simples pour se regrouper, s'aligner, et maintenir une distance minimale entre eux, tout en évitant un prédateur qui peut les chasser.
+
+Objectif du Modèle
+
+L'objectif de ce modèle est de simuler le comportement de groupe (flocking) des poissons, tout en intégrant un mécanisme d'évitement de prédateur. Le modèle permet d'observer comment les poissons interagissent entre eux et réagissent à la présence d'un prédateur.
+
+Fonctionnement du Modèle
+
+Agents et Environnement
+
+- Poissons (Fishes) : Les poissons sont les agents principaux du modèle. Ils suivent trois règles de base :
+
+- Alignement : Les poissons ajustent leur direction pour se déplacer dans la même direction que leurs voisins proches.
+
+- Séparation : Les poissons maintiennent une distance minimale entre eux pour éviter les collisions.
+
+- Cohésion : Les poissons se déplacent vers le centre de masse de leurs voisins proches pour rester groupés.
+
+- Prédateur (Predator) : Le prédateur est un agent unique qui se déplace en fonction de la position de la souris. Les poissons détectent le prédateur dans leur champ de vision et s'en éloignent pour éviter d'être capturés.
+
+Règles de Comportement
+
+- Flocking : Les poissons suivent les règles d'alignement, de séparation et de cohésion pour former des groupes cohérents.
+
+- Évitement du Prédateur : Lorsqu'un poisson détecte un prédateur dans son champ de vision, il change de direction pour s'en éloigner.
+
+Variables Globales
+
+- population : Nombre de poissons dans la simulation.
+
+- vision : Distance à laquelle les poissons peuvent détecter leurs voisins et le prédateur.
+
+- maximum-separation : Distance minimale que les poissons essaient de maintenir entre eux.
+
+- max-align-turn, max-cohere-turn, max-separate-turn : Angles maximaux que les poissons peuvent tourner pour s'aligner, se regrouper, ou se séparer.
+
+Comment Utiliser le Modèle
+
+Interface :
+
+- Setup : Initialise la simulation en créant les poissons et le prédateur.
+
+- Go : Lance la simulation.
+
+Sliders :
+
+- population : Nombre de poissons dans la simulation.
+
+- vision : Distance de vision des poissons.
+
+- maximum-separation : Distance minimale entre les poissons.
+
+- max-align-turn, max-cohere-turn, max-separate-turn : Angles maximaux de rotation pour les règles d'alignement, de cohésion et de séparation.
+
+Exécution :
+
+Cliquez sur Setup pour initialiser la simulation.
+
+Cliquez sur Go pour démarrer la simulation.
+
+Déplacez la souris pour contrôler la position du prédateur.
+
+Observez comment les poissons se regroupent et évitent le prédateur.
+
+Observations à Faire
+
+- Comportement de Flocking : Observez comment les poissons forment des groupes cohérents en suivant les règles d'alignement, de séparation et de cohésion.
+
+- Évitement du Prédateur : Notez comment les poissons réagissent à la présence du prédateur et changent de direction pour s'en éloigner.
+
+- Impact des Paramètres : Jouez avec les paramètres (vision, séparation, angles de rotation) pour voir comment ils affectent le comportement des poissons.
+
+Extensions Possibles
+
+- Ajouter plus de Prédateurs : Modifiez le modèle pour inclure plusieurs prédateurs et observez comment les poissons réagissent.
+
+- Varier la Vitesse des Poissons : Introduisez des variations de vitesse entre les poissons pour simuler des comportements plus réalistes.
+
+- Ajouter des Obstacles : Ajoutez des obstacles dans l'environnement et observez comment les poissons les évitent tout en maintenant leur comportement de flocking.
+
+Fonctionnalités NetLogo Utilisées
+
+- Patches : Utilisés pour représenter l'environnement.
+
+- Turtles : Représentent les poissons et le prédateur.
+
+- Cones : Utilisés pour la détection des voisins et du prédateur.
+
+- Randomness : La position initiale des poissons est aléatoire.
