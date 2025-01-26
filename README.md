@@ -28,34 +28,35 @@ Règles de Comportement
 
 Variables Globales
 
-death-counter : Compte le nombre d'agents morts.
+- death-counter : Compte le nombre d'agents morts.
 
-free-counter : Compte le nombre d'agents ayant réussi à évacuer.
+- free-counter : Compte le nombre d'agents ayant réussi à évacuer.
 
-walk-counter : Compte le nombre de pas effectués par les agents.
+- walk-counter : Compte le nombre de pas effectués par les agents.
 
 Comment Utiliser le Modèle
+
 Interface :
 
-Setup : Initialise la simulation en plaçant les agents, les obstacles, et le feu.
+- Setup : Initialise la simulation en plaçant les agents, les obstacles, et le feu.
 
-Go : Lance la simulation.
+- Go : Lance la simulation.
 
 Sliders :
 
-impatients : Nombre d'agents impatients.
+- impatients : Nombre d'agents impatients.
 
-patients : Nombre d'agents patients.
+- patients : Nombre d'agents patients.
 
-turtle-patience : Niveau de patience des agents patients.
+- turtle-patience : Niveau de patience des agents patients.
 
 Monitors :
 
-death-counter : Affiche le nombre d'agents morts.
+- death-counter : Affiche le nombre d'agents morts.
 
-free-counter : Affiche le nombre d'agents évacués.
+- free-counter : Affiche le nombre d'agents évacués.
 
-walk-counter : Affiche le nombre de pas effectués.
+- walk-counter : Affiche le nombre de pas effectués.
 
 Exécution :
 
@@ -68,30 +69,30 @@ Observez comment les agents se déplacent, comment le feu se propage, et comment
 Observations à Faire
 Impact de la Patience : Observez comment le niveau de patience des agents affecte le temps d'évacuation et le nombre de victimes.
 
-Propagation du Feu : Notez comment la propagation du feu influence la survie des agents.
+- Propagation du Feu : Notez comment la propagation du feu influence la survie des agents.
 
-Comportement des Agents : Observez les différences de comportement entre les agents patients et impatients.
+- Comportement des Agents : Observez les différences de comportement entre les agents patients et impatients.
 
 Extensions Possibles
-Ajouter plus de Sorties : Modifiez le modèle pour inclure plusieurs sorties et observez comment cela affecte l'évacuation.
 
-Varier la Taille de la Bibliothèque : Changez la taille de l'environnement pour voir comment cela influence les résultats.
+- Ajouter plus de Sorties : Modifiez le modèle pour inclure plusieurs sorties et observez comment cela affecte l'évacuation.
 
-Ajouter des Objets à Ramasser : Introduisez des objets que les agents doivent ramasser avant de sortir, ce qui ajoute une couche de complexité à la simulation.
+- Varier la Taille de la Bibliothèque : Changez la taille de l'environnement pour voir comment cela influence les résultats.
 
-Fonctionnalités NetLogo Utilisées
+- Ajouter des Objets à Ramasser : Introduisez des objets que les agents doivent ramasser avant de sortir, ce qui ajoute une couche de complexité à la simulation.
+
+- Fonctionnalités NetLogo Utilisées
 Patches : Utilisés pour représenter l'environnement (murs, obstacles, sorties, feu).
 
-Turtles : Représentent les agents (personnes) dans la simulation.
+- Turtles : Représentent les agents (personnes) dans la simulation.
 
-Cones : Utilisés pour la détection des obstacles et des autres agents.
+- Cones : Utilisés pour la détection des obstacles et des autres agents.
 
-Randomness : La propagation du feu et les mouvements des agents sont partiellement aléatoires.
+- Randomness : La propagation du feu et les mouvements des agents sont partiellement aléatoires.
 
 Modèles Connexes
-Fire : Un modèle de propagation de feu dans NetLogo.
 
-Traffic Basic : Un modèle de circulation qui explore les comportements des agents dans un environnement contraint.
+- Fire : Un modèle de propagation de feu dans NetLogo.
 
-Crédits et Références
-Ce modèle a été inspiré par des simulations d'évacuation d'urgence et des études sur le comportement humain en situation de crise. Pour plus d'informations sur NetLogo, visitez ccl.northwestern.edu/netlogo/.
+- Traffic Basic : Un modèle de circulation qui explore les comportements des agents dans un environnement contraint.
+
